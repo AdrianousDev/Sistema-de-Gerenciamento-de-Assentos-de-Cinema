@@ -50,6 +50,10 @@ public class Menu {
                         liberarCadeira();
                         break;
 
+                    case 5:
+                        cadastrarSala();
+                        break;
+
                     case 0:
                         System.out.println("Encerrando sistema...");
                         return;
@@ -69,6 +73,7 @@ public class Menu {
         System.out.println("2 - Visualizar cadeiras");
         System.out.println("3 - Reservar cadeira");
         System.out.println("4 - Liberar cadeira");
+        System.out.println("5 - Cadastrar sala");
         System.out.println("0 - Sair");
         System.out.print("Escolha: ");
     }
@@ -131,5 +136,27 @@ public class Menu {
         cinemaService.liberarCadeira(nomeSala, codigo);
 
         System.out.println("Cadeira liberada.");
+    }
+
+    private void cadastrarSala() {
+        System.out.print("Nome da sala: ");
+        String nome = scanner.nextLine();
+
+        int fileiras = lerInteiro("Quantidade de fileiras: ");
+        int colunas = lerInteiro("Quantidade de colunas: ");
+
+        cinemaService.cadastrarSala(nome, fileiras, colunas);
+
+        System.out.println("Sala cadastrada com sucesso.");
+    }
+
+    private int lerInteiro(String mensagem) {
+        System.out.print(mensagem);
+
+        try {
+            return Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException erro) {
+            throw new RuntimeException("Digite um número válido.");
+        }
     }
 }
