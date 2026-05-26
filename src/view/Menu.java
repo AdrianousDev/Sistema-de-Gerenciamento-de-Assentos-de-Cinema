@@ -103,6 +103,9 @@ public class Menu {
     private void imprimirCadeiras(Sala sala) {
         int count = 0;
 
+        System.out.println("\nX = Reservado");
+        System.out.println("L = Livre\n");
+
         for (Cadeira cadeira : sala.getCadeiras()) {
             System.out.print(cadeira + " ");
 
