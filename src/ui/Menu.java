@@ -1,5 +1,6 @@
 package ui;
 
+import exception.LerInteiroException;
 import model.Cadeira;
 import model.Sala;
 import service.CinemaService;
@@ -24,9 +25,9 @@ public class Menu {
             mostrarMenu();
 
             try {
-                opcao = Integer.parseInt(scanner.nextLine());
-            } catch (NumberFormatException erro) {
-                System.out.println("Opção inválida. Digite um número.");
+                opcao = lerInteiro("");
+            }  catch (RuntimeException erro) {
+                System.out.println("Erro: " + erro.getMessage());
                 continue;
             }
 
@@ -156,7 +157,7 @@ public class Menu {
         try {
             return Integer.parseInt(scanner.nextLine());
         } catch (NumberFormatException erro) {
-            throw new RuntimeException("Digite um número válido.");
+            throw new LerInteiroException();
         }
     }
 }
