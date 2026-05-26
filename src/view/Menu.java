@@ -1,4 +1,4 @@
-package ui;
+package view;
 
 import exception.LerInteiroException;
 import model.Cadeira;

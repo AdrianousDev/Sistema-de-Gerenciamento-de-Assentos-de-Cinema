@@ -1,7 +1,7 @@
 import repository.SalaRepository;
 import repository.memory.SalaRepositoryMemoria;
 import service.CinemaService;
-import ui.Menu;
+import view.Menu;
 
 public class Main {
 
